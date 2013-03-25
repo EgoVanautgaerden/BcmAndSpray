@@ -1,0 +1,61 @@
+/*************************************************************************************
+ *
+ * Spray diagram definition
+ * 
+ * This file contains the definition of a graphical editor using the Spray Language.
+ * Refer to http://code.google.com/a/eclipselabs.org/p/spray/ for documentation.
+ *
+ * See also bcmSpray3.properties to configure generator properties.
+ *************************************************************************************/
+// Add import statements here
+import bcm.*    
+  
+//author: Ego Vanautgaerden
+
+diagram bcmSpray3 for Bundle style BcmSpray3DefaultStyle
+
+//the class of an component
+//icon to use for in the pallet of options
+class Component icon "ecore/EClass.gif"{
+	//wich shape to use
+	shape componentShape {
+		//where to place the txt
+		name into componentText
+		//where to place the ports
+		reference ports into properties
+	}
+	//what it has to do and where to place this in the pallet
+	behavior {
+	    create into components palette "componets" askFor name
+	}
+	
+}
+
+//the class for a port
+class Port icon "ecore/EAttribute.gif"{
+	shape portShape {
+		name into portText
+	}
+	//no create into because we don't add it to the bundle but to the component
+	behavior {
+		create palette "border items"
+	}
+}
+
+//the clas for a connection
+class PConnection icon "connection16.gif" {
+	//wich connection to use
+	connection connectionShape {
+		name into assocText
+	} 
+	//from where to where you have to make the connection
+	{
+		from source
+		to target
+	}
+	//adding to bundle's connections
+	behavior {
+		create into connections palette "connections"
+	}
+}
+

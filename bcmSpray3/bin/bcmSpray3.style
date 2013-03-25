@@ -1,0 +1,33 @@
+/*************************************************************************************
+ *
+ * Spray styles definition
+ * 
+ * This file contains the definition of style classes using the Styles Language.
+ * Refer to http://code.google.com/a/eclipselabs.org/p/spray/ for documentation.
+ *************************************************************************************/
+
+// Add definition of styles here.
+style BcmSpray3DefaultStyle {
+    description = "The default style of the bcmSpray3 diagram type."
+    transparency = 0.5
+    // background-color = black
+    // line-color = black
+    // line-style = solid
+    // line-width = 1
+    // font-color = black
+    // font-name = "Tahoma"
+    font-size = 12
+    // font-bold = yes
+}
+
+style OutputPortStyle{
+	description = "the shape for an output"
+	background-color = yellow
+	font-size = 12
+}
+
+style InputPortStyle{
+	description = "the shape for an input"
+	background-color = green
+	font-size = 12
+}

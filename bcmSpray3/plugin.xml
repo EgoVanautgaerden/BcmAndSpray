@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+        <?eclipse version="3.0"?>
+        <!--
+         Generated on Fri Mar 22 15:22:57 CET 2013 by Spray Plugin.xtend
+         This file will be generated oinly once if it need to be regenerated, remove this file.
+         
+        -->
+        <plugin>
+           <!-- Potentially redefine the EDITOR EXTENSION TO ALLOW FOR OUR OWN EDITOR SUBCLASS TO BE USED. 
+           <extension
+                 point="org.eclipse.ui.editors">
+              <editor
+                  class="bcmspray3.internal.ExecutableExtensionFactory:bcmspray3.diagram.BcmSpray3DiagramEditor"
+                  contributorClass="org.eclipse.graphiti.ui.editor.DiagramEditorActionBarContributor"
+                  default="true"
+                  extensions="diagram"
+                  icon="icons/diagram.gif"
+                  id="bcmspray3.diagram.BcmSpray3DiagramEditor"
+                  matchingStrategy="org.eclipse.graphiti.ui.editor.DiagramEditorFactory$DiagramEditorMatchingStrategy"
+                  name="%_diagram_editor_name">
+               <contentTypeBinding
+                     contentTypeId="org.eclipse.graphiti.content.diagram">
+               </contentTypeBinding>
+              </editor>
+           </extension>
+           -->
+        
+          <extension
+              point="org.eclipse.graphiti.ui.diagramTypes">
+            <diagramType
+              description="This is the diagram type for the bcmSpray3 diagram type"
+              id="bcmspray3.diagram.BcmSpray3DiagramType"
+              name="bcmSpray3 Graphiti Diagram Type"
+              type="bcmSpray3">
+            </diagramType>
+          </extension>
+        
+          <extension
+              point="org.eclipse.graphiti.ui.diagramTypeProviders">
+            <diagramTypeProvider
+              class="bcmspray3.internal.ExecutableExtensionFactory:bcmspray3.diagram.BcmSpray3DiagramTypeProvider"
+              description="This is my editor for the bcmSpray3 diagram type"
+              id="bcmspray3.diagram.BcmSpray3DiagramTypeProvider"
+              name="bcmSpray3 editor">
+              <diagramType
+                    id="bcmspray3.diagram.BcmSpray3DiagramType">
+              </diagramType>
+                <imageProvider
+                       id="bcmspray3.diagram.BcmSpray3ImageProvider">
+                 </imageProvider>
+            </diagramTypeProvider>
+          </extension>
+        
+           <extension
+                 point="org.eclipse.graphiti.ui.imageProviders">
+              <imageProvider
+                    class="bcmspray3.internal.ExecutableExtensionFactory:bcmspray3.diagram.BcmSpray3ImageProvider"
+                       id="bcmspray3.diagram.BcmSpray3ImageProvider">
+              </imageProvider>
+           </extension>
+        
+          <extension
+              point="org.eclipse.ui.views.properties.tabbed.propertyContributor">
+              <propertyContributor contributorId="bcmSpray3.PropertyContributor">
+                  <propertyCategory category="bcmSpray3Category">
+                  </propertyCategory>
+              </propertyContributor>
+          </extension>
+        
+          <extension
+              point="org.eclipse.ui.views.properties.tabbed.propertyTabs">
+              <propertyTabs contributorId="bcmSpray3.PropertyContributor">
+                  <propertyTab label="Main" category="bcmSpray3Category"
+                      id="bcmSpray3.main.tab">
+                  </propertyTab>
+              </propertyTabs>
+          </extension>
+        <extension
+            point="org.eclipse.ui.views.properties.tabbed.propertySections">
+            <propertySections contributorId="bcmSpray3.PropertyContributor">
+          <propertySection tab="bcmSpray3.main.tab"
+           class="bcmspray3.internal.ExecutableExtensionFactory:bcmspray3.property.ComponentNameSection"
+           filter="bcmspray3.property.ComponentFilter"
+           id="bcmSpray3.main.tab.Component.name">
+          </propertySection>
+            </propertySections>
+        </extension>
+        
+        <extension
+            point="org.eclipse.ui.views.properties.tabbed.propertySections">
+            <propertySections contributorId="bcmSpray3.PropertyContributor">
+          <propertySection tab="bcmSpray3.main.tab"
+           class="bcmspray3.internal.ExecutableExtensionFactory:bcmspray3.property.PortNameSection"
+           filter="bcmspray3.property.PortFilter"
+           id="bcmSpray3.main.tab.Port.name">
+          </propertySection>
+          <propertySection tab="bcmSpray3.main.tab"
+           class="bcmspray3.internal.ExecutableExtensionFactory:bcmspray3.property.PortTypeSection"
+           filter="bcmspray3.property.PortFilter"
+           afterSection="bcmSpray3.main.tab.Port.name"
+           id="bcmSpray3.main.tab.Port.type">
+          </propertySection>
+            </propertySections>
+        </extension>
+        
+        <extension
+            point="org.eclipse.ui.views.properties.tabbed.propertySections">
+            <propertySections contributorId="bcmSpray3.PropertyContributor">
+          <propertySection tab="bcmSpray3.main.tab"
+           class="bcmspray3.internal.ExecutableExtensionFactory:bcmspray3.property.PConnectionNameSection"
+           filter="bcmspray3.property.PConnectionFilter"
+           id="bcmSpray3.main.tab.PConnection.name">
+          </propertySection>
+            </propertySections>
+        </extension>
+        
+    
+    
+            <extension
+                  point="org.eclipse.ui.newWizards">
+                  <category
+                     name="bcmSpray3"
+                     id="org.eclipselabs.spray.bcmSpray3">
+                     </category>
+               <wizard
+                     category="org.eclipselabs.spray.bcmSpray3"
+                     class="bcmspray3.internal.ExecutableExtensionFactory:org.eclipselabs.spray.runtime.graphiti.wizard.NewDiagramWizard"
+                     descriptionImage="icons/bcmSpray3-32.png"
+                     icon="icons/bcmSpray3-16.png"
+                     id="org.eclipselabs.spray.bcmSpray3.NewDiagramWizard"
+                     name="New bcmSpray3 Diagram"
+                     preferredPerspectives="org.eclipse.graphiti.examples.common.perspective.GFPerspective"
+                     project="false">
+               </wizard>
+            </extension>
+        </plugin>
