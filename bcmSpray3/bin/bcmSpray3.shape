@@ -62,6 +62,9 @@ shape portShape{
 			id = portText
 		}
 	}
+	anchor{
+		position(x=80,y=16)
+	}
 }
 
 //The shape for the connection, you have to use connection instead of shape if you want to have a line

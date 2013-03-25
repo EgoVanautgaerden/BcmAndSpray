@@ -101,7 +101,19 @@ public class PortShape extends DefaultSprayShape {
 		SprayLayoutManager.setSizePictogramProperties(containerShape);
 		
 		// creates the anchors
-		peCreateService.createChopboxAnchor(containerShape);
+		{
+			FixPointAnchor fixAnchor = peCreateService.createFixPointAnchor(containerShape);
+			Point fixAnchorPoint = gaService.createPoint(80, 16);
+			fixAnchor.setLocation(fixAnchorPoint);
+			Ellipse ellipse = gaService.createEllipse(fixAnchor);
+			ellipse.setFilled(true);
+			ellipse.setLineVisible(false);
+			ellipse.setBackground(gaService.manageColor(diagram, IColorConstant.GRAY));
+			ellipse.setX(-6);
+			ellipse.setY(-3);
+			ellipse.setWidth(6);
+			ellipse.setHeight(6);
+		}
 		
 		// Fix the broken coordinate syaten for not active container shapes
         SprayAbstractLayoutManager.fixOffset(containerShape);

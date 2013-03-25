@@ -1,6 +1,6 @@
 /*************************************************************************************
  *
- * Generated on Fri Mar 22 15:22:57 CET 2013 by Spray MoveFeature.xtend
+ * Generated on Mon Mar 25 16:34:02 CET 2013 by Spray MoveFeature.xtend
  *
  * This file contains generated and should not be changed.
  * Use the extension point class (the direct subclass of this class) to add manual code

@@ -1,6 +1,6 @@
 /*************************************************************************************
  *
- * Generated on Fri Mar 22 15:22:57 CET 2013 by Spray AddConnectionFromDslFeature.xtend
+ * Generated on Mon Mar 25 16:34:01 CET 2013 by Spray AddConnectionFromDslFeature.xtend
  *
  * This file contains generated and should not be changed.
  * Use the extension point class (the direct subclass of this class) to add manual code

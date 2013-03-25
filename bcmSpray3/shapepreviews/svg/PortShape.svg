@@ -32,4 +32,5 @@
 </defs>
 <rect x="0" y="0" width="80" height="32" rx="15" ry="15"/>
 <text x="5" y="16">#portText</text>
+<use x="80" y="16" xlink:href="#anchor"/>
 </svg>
