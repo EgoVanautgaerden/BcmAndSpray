@@ -130,7 +130,7 @@ public class ComponentShape extends DefaultSprayShape {
 		SprayLayoutService.setId(shape_5, "componentShape.shape_5");
 		SprayLayoutService.setCompartment(shape_5, true);
 		GraphitiProperties.set(shape_5, ISprayConstants.TEXT_ID, "properties");
-		SprayLayoutType layout_5 = SprayLayoutType.HORIZONTAL;
+		SprayLayoutType layout_5 = SprayLayoutType.VERTICAL;
 		SprayLayoutService.setLayoutManager(shape_5, layout_5, 3, 5, false);
 		SprayLayoutService.setLayoutData(shape_5, 35, 90);
 		SprayLayoutService.getLayoutData(shape_5).setHorizontalStrechable(false);
@@ -147,7 +147,7 @@ public class ComponentShape extends DefaultSprayShape {
 		SprayLayoutService.setId(shape_6, "componentShape.shape_6");
 		SprayLayoutService.setCompartment(shape_6, true);
 		GraphitiProperties.set(shape_6, ISprayConstants.TEXT_ID, "properties2");
-		SprayLayoutType layout_6 = SprayLayoutType.HORIZONTAL;
+		SprayLayoutType layout_6 = SprayLayoutType.VERTICAL;
 		SprayLayoutService.setLayoutManager(shape_6, layout_6, 3, 5, false);
 		SprayLayoutService.setLayoutData(shape_6, 35, 90);
 		SprayLayoutService.getLayoutData(shape_6).setHorizontalStrechable(false);
