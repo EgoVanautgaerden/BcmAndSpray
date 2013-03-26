@@ -1,6 +1,6 @@
 /*************************************************************************************
  *
- * Generated on Mon Mar 25 16:34:01 CET 2013 by Spray CreateShapeFeature.xtend
+ * Generated on Tue Mar 26 09:42:40 CET 2013 by Spray CreateShapeFeature.xtend
  *
  * This file contains generated and should not be changed.
  * Use the extension point class (the direct subclass of this class) to add manual code
@@ -59,6 +59,15 @@ public abstract class BcmSpray3CreatePortFeatureBase extends AbstractCreateFeatu
                 }
             }
         }
+        // cls Component refers to this metaClass
+        if (target instanceof bcm.Component) {
+            if (SprayLayoutService.isCompartment(context.getTargetContainer())) {
+                String id = GraphitiProperties.get(context.getTargetContainer(), TEXT_ID);
+                if ((id != null) && (id.equals("properties2"))) {
+                    return true;
+                }
+            }
+        }
         return false;
     }
 
@@ -95,6 +104,13 @@ public abstract class BcmSpray3CreatePortFeatureBase extends AbstractCreateFeatu
         boolean isContainment = false;
         final Object target = getBusinessObjectForPictogramElement(context.getTargetContainer());
         //              And now the NEW stuff
+        if (target instanceof bcm.Component) {
+            bcm.Component domainObject = (bcm.Component) target;
+            // containment
+            domainObject.getPorts().add(newClass);
+            setDoneChanges(true);
+            return newClass;
+        }
         if (target instanceof bcm.Component) {
             bcm.Component domainObject = (bcm.Component) target;
             // containment

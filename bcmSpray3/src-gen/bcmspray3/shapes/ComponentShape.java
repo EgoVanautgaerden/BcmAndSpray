@@ -38,7 +38,9 @@ public class ComponentShape extends DefaultSprayShape {
     
 	public static enum TextIds {
 		componentText,
-		properties
+		comps,
+		properties,
+		properties2
 	}
 	
 	public ComponentShape(IFeatureProvider fp) {
@@ -70,48 +72,94 @@ public class ComponentShape extends DefaultSprayShape {
 		GraphicsAlgorithm element_0 = gaService.createInvisibleRectangle(containerShape);
 		element_0.setStyle(sprayStyle.getStyle(diagram));
 		SprayLayoutService.setShapeFromDsl(containerShape, true);
-		gaService.setLocationAndSize(element_0, 0, 0, 100, 130);
+		gaService.setLocationAndSize(element_0, 0, 0, 140, 130);
 		
 		ContainerShape shape_1 = peCreateService.createContainerShape(containerShape, false);
 		SprayLayoutService.setId(shape_1, "componentShape.shape_1");
-		RoundedRectangle element_1 = gaService.createPlainRoundedRectangle(shape_1, 20, 20);
+		SprayLayoutService.setCompartment(shape_1, false);
+		Rectangle element_1 = gaService.createPlainRectangle(shape_1);
 		ISprayStyle style_1 = sprayStyle;
 		element_1.setStyle(style_1.getStyle(diagram));
-		gaService.setLocationAndSize(element_1, 0, 0, 100, 130);
-		SprayLayoutService.setLayoutData(shape_1, 100, 130, true);
+		gaService.setLocationAndSize(element_1, 0, 0, 140, 130);
+		SprayLayoutService.setLayoutData(shape_1, 140, 130, true);
+		element_1.setTransparency(1.0);		
 		// start RECURSIVEcREATION shape_1
 		
-		Shape shape_2 = peCreateService.createShape(shape_1, false);
+		ContainerShape shape_2 = peCreateService.createContainerShape(shape_1, false);
 		SprayLayoutService.setId(shape_2, "componentShape.shape_2");
-		Text element_2 = gaService.createPlainText(shape_2);
+		RoundedRectangle element_2 = gaService.createPlainRoundedRectangle(shape_2, 20, 20);
 		ISprayStyle style_2 = style_1;
 		element_2.setStyle(style_2.getStyle(diagram));
-		gaService.setLocationAndSize(element_2, 5, 5, 70, 25);
-		SprayLayoutService.setLayoutData(shape_2, 70, 25, true);
-		element_2.setHorizontalAlignment(Orientation.ALIGNMENT_LEFT);
-		element_2.setVerticalAlignment(Orientation.ALIGNMENT_TOP);
-		peService.setPropertyValue(element_2, ISprayConstants.TEXT_ID, TextIds.componentText.name());
-		peService.setPropertyValue(shape_2, ISprayConstants.TEXT_ID, TextIds.componentText.name());
-		element_2.setValue("");
-		getFeatureProvider().getDirectEditingInfo().setGraphicsAlgorithm(element_2);
-		// END createElement Text parent shape_1
-		ContainerShape shape_3 = peCreateService.createContainerShape(shape_1, true);
-		SprayLayoutService.setId(shape_3, "componentShape.shape_3");
-		SprayLayoutService.setCompartment(shape_3, true);
-		GraphitiProperties.set(shape_3, ISprayConstants.TEXT_ID, "properties");
-		SprayLayoutType layout_3 = SprayLayoutType.VERTICAL;
-		SprayLayoutService.setLayoutManager(shape_3, layout_3, 5, 5, false);
-		SprayLayoutService.setLayoutData(shape_3, 100, 95);
-		SprayLayoutService.getLayoutData(shape_3).setHorizontalStrechable(true);
-		Rectangle element_3 = gaService.createPlainRectangle(shape_3);
-		ISprayStyle style_3 = style_1;
-		element_3.setStyle(style_3.getStyle(diagram));
-		gaService.setLocationAndSize(element_3, 0, 35, 100, 95);
-		SprayLayoutService.setLayoutData(shape_3, 100, 95, true);
-		element_3.setForeground(gaService.manageColor(diagram,IColorConstant.BLACK));    	
-		// start RECURSIVEcREATION shape_3
+		gaService.setLocationAndSize(element_2, 20, 0, 100, 130);
+		SprayLayoutService.setLayoutData(shape_2, 100, 130, true);
+		// start RECURSIVEcREATION shape_2
 		
-		// end RECURSIVEcREATION shape_3
+		Shape shape_3 = peCreateService.createShape(shape_2, false);
+		SprayLayoutService.setId(shape_3, "componentShape.shape_3");
+		Text element_3 = gaService.createPlainText(shape_3);
+		ISprayStyle style_3 = style_2;
+		element_3.setStyle(style_3.getStyle(diagram));
+		gaService.setLocationAndSize(element_3, 15, 5, 70, 25);
+		SprayLayoutService.setLayoutData(shape_3, 70, 25, true);
+		element_3.setHorizontalAlignment(Orientation.ALIGNMENT_LEFT);
+		element_3.setVerticalAlignment(Orientation.ALIGNMENT_TOP);
+		peService.setPropertyValue(element_3, ISprayConstants.TEXT_ID, TextIds.componentText.name());
+		peService.setPropertyValue(shape_3, ISprayConstants.TEXT_ID, TextIds.componentText.name());
+		element_3.setValue("");
+		getFeatureProvider().getDirectEditingInfo().setGraphicsAlgorithm(element_3);
+		// END createElement Text parent shape_2
+		ContainerShape shape_4 = peCreateService.createContainerShape(shape_2, true);
+		SprayLayoutService.setId(shape_4, "componentShape.shape_4");
+		SprayLayoutService.setCompartment(shape_4, true);
+		GraphitiProperties.set(shape_4, ISprayConstants.TEXT_ID, "comps");
+		SprayLayoutType layout_4 = SprayLayoutType.VERTICAL;
+		SprayLayoutService.setLayoutManager(shape_4, layout_4, 5, 5, false);
+		SprayLayoutService.setLayoutData(shape_4, 100, 95);
+		SprayLayoutService.getLayoutData(shape_4).setHorizontalStrechable(true);
+		Rectangle element_4 = gaService.createPlainRectangle(shape_4);
+		ISprayStyle style_4 = style_2;
+		element_4.setStyle(style_4.getStyle(diagram));
+		gaService.setLocationAndSize(element_4, 0, 35, 100, 95);
+		SprayLayoutService.setLayoutData(shape_4, 100, 95, true);
+		element_4.setForeground(gaService.manageColor(diagram,IColorConstant.BLACK));    	
+		// start RECURSIVEcREATION shape_4
+		
+		// end RECURSIVEcREATION shape_4
+		// end RECURSIVEcREATION shape_2
+		ContainerShape shape_5 = peCreateService.createContainerShape(shape_1, true);
+		SprayLayoutService.setId(shape_5, "componentShape.shape_5");
+		SprayLayoutService.setCompartment(shape_5, true);
+		GraphitiProperties.set(shape_5, ISprayConstants.TEXT_ID, "properties");
+		SprayLayoutType layout_5 = SprayLayoutType.VERTICAL;
+		SprayLayoutService.setLayoutManager(shape_5, layout_5, 5, 5, false);
+		SprayLayoutService.setLayoutData(shape_5, 35, 100);
+		SprayLayoutService.getLayoutData(shape_5).setHorizontalStrechable(true);
+		Rectangle element_5 = gaService.createPlainRectangle(shape_5);
+		ISprayStyle style_5 = style_1;
+		element_5.setStyle(style_5.getStyle(diagram));
+		gaService.setLocationAndSize(element_5, 100, 30, 35, 100);
+		SprayLayoutService.setLayoutData(shape_5, 35, 100, true);
+		element_5.setTransparency(1.0);		
+		// start RECURSIVEcREATION shape_5
+		
+		// end RECURSIVEcREATION shape_5
+		ContainerShape shape_6 = peCreateService.createContainerShape(shape_1, true);
+		SprayLayoutService.setId(shape_6, "componentShape.shape_6");
+		SprayLayoutService.setCompartment(shape_6, true);
+		GraphitiProperties.set(shape_6, ISprayConstants.TEXT_ID, "properties2");
+		SprayLayoutType layout_6 = SprayLayoutType.VERTICAL;
+		SprayLayoutService.setLayoutManager(shape_6, layout_6, 5, 5, false);
+		SprayLayoutService.setLayoutData(shape_6, 35, 100);
+		SprayLayoutService.getLayoutData(shape_6).setHorizontalStrechable(true);
+		Rectangle element_6 = gaService.createPlainRectangle(shape_6);
+		ISprayStyle style_6 = style_1;
+		element_6.setStyle(style_6.getStyle(diagram));
+		gaService.setLocationAndSize(element_6, 5, 30, 35, 100);
+		SprayLayoutService.setLayoutData(shape_6, 35, 100, true);
+		element_6.setTransparency(1.0);		
+		// start RECURSIVEcREATION shape_6
+		
+		// end RECURSIVEcREATION shape_6
 		// end RECURSIVEcREATION shape_1
 		
 		

@@ -23,6 +23,8 @@ class Component icon "ecore/EClass.gif"{
 		name into componentText
 		//where to place the ports
 		reference ports into properties
+		reference ports into properties2
+		reference components into comps
 	}
 	//what it has to do and where to place this in the pallet
 	behavior {

@@ -10,60 +10,96 @@
 
 //shape fo a content
 shape componentShape{
-	//the rectangle who has everything in himself, normaly it would have 4 rounded corners but due to the rectangles on the bottom who doesn't have rounded corners you onley see the top rounded corners
-	rounded-rectangle{
-		//code to give in how big the curve must be
-		curve(width=20,height=20)
+	rectangle{
 		position(x=0,y=0)
-		size(width=100, height=130)
-		//the name of the class
-		text {
-           	size(width=70, height=25)
-           	position(x=5,y=5)
-           	//this is used to know where the name must be placed in
-            id = componentText        
-        }
-        //place for al the ports
-        rectangle {
-        	//You have to use a compartment to add objects to an object
-            compartment (
-            	//you could use the next command in comments if you want this compartement not to been seen, I would like to see this so I did not use it. 
-                //invisible
-                //Layout is to give in, in wich direction the objects must be added
-                layout = vertical
-                //how to stretch
-                stretching(
-                	horizontal=true,
-                	vertical=true
-                )
-                //how many space there must been kept between the edge of the compartement and the new objects or between objects
-                spacing=5
-                margin=5
-                //this is used so the .spray knows where the objects are placed
-                id = properties
-            )
-            //variables about the rectangle who has the compartement
-            style (line-color=black)
-            position (x=0, y=35)
-            size (width=100, height=95)
-        }
+		size(width=140,height=130)
+		style(transparency=1.0)
+	//}
+		//the rectangle who has everything in himself, normaly it would have 4 rounded corners but due to the rectangles on the bottom who doesn't have rounded corners you onley see the top rounded corners
+		rounded-rectangle{
+			//code to give in how big the curve must be
+			curve(width=20,height=20)
+			position(x=20,y=0)
+			size(width=100, height=130)
+			//the name of the class
+			text {
+           		size(width=70, height=25)
+           		position(x=15,y=5)
+           		//this is used to know where the name must be placed in
+            	id = componentText        
+        	}
+        	//place for all the other components
+        	rectangle {
+        		//You have to use a compartment to add objects to an object
+            	compartment (
+            		//you could use the next command in comments if you want this compartement not to been seen, I would like to see this so I did not use it. 
+                	//invisible
+                	//Layout is to give in, in wich direction the objects must be added
+               		layout = vertical
+                	//how to stretch
+               		stretching(
+                		horizontal=true,
+                		vertical=true
+               		)
+                	//how many space there must been kept between the edge of the compartement and the new objects or between objects
+               		spacing=5
+                	margin=5
+                	//this is used so the .spray knows where the objects are placed
+               		id = comps
+           		)
+            	//variables about the rectangle who has the compartement
+           		style (line-color=black)
+           		position (x=0, y=35)
+           		size (width=100, height=95)
+       		}
+		}
+		rectangle {
+			compartment (
+				layout = vertical
+				spacing=5
+            	margin=5
+            	id = properties
+            	stretching(
+            		horizontal=true,
+            		vertical=true
+            	)
+			)
+			position (x=100,y=30)
+			size (width=35,height=100)
+			style (transparency=1.0)
+		}
+		rectangle {
+			compartment (
+				layout = vertical
+				spacing=5
+            	margin=5
+            	id = properties2
+            	stretching(
+            		horizontal=true,
+            		vertical=true
+            	)
+			)
+			position (x=5,y=30)
+			size (width=35,height=100)
+			style (transparency=1.0)
+		}
 	}
 }
 
 //The shape for the port objects
 shape portShape{
-	rounded-rectangle {
-		curve(width=15,height=15)
+	rectangle {
 		position(x=0,y=0)
-		size (width=80,height=32)
+		size (width=30,height=30)
 		text {
 			position (x=5,y=1)
-			size (width=40,height=15)
+			size (width=15,height=15)
 			id = portText
 		}
 	}
 	anchor{
-		position(x=80,y=16)
+		position(x=0,y=15)
+		position(x=20,y=15)
 	}
 }
 

@@ -69,15 +69,16 @@ public class PortShape extends DefaultSprayShape {
 		GraphicsAlgorithm element_0 = gaService.createInvisibleRectangle(containerShape);
 		element_0.setStyle(sprayStyle.getStyle(diagram));
 		SprayLayoutService.setShapeFromDsl(containerShape, true);
-		gaService.setLocationAndSize(element_0, 0, 0, 80, 32);
+		gaService.setLocationAndSize(element_0, 0, 0, 30, 30);
 		
 		ContainerShape shape_1 = peCreateService.createContainerShape(containerShape, false);
 		SprayLayoutService.setId(shape_1, "portShape.shape_1");
-		RoundedRectangle element_1 = gaService.createPlainRoundedRectangle(shape_1, 15, 15);
+		SprayLayoutService.setCompartment(shape_1, false);
+		Rectangle element_1 = gaService.createPlainRectangle(shape_1);
 		ISprayStyle style_1 = sprayStyle;
 		element_1.setStyle(style_1.getStyle(diagram));
-		gaService.setLocationAndSize(element_1, 0, 0, 80, 32);
-		SprayLayoutService.setLayoutData(shape_1, 80, 32, true);
+		gaService.setLocationAndSize(element_1, 0, 0, 30, 30);
+		SprayLayoutService.setLayoutData(shape_1, 30, 30, true);
 		// start RECURSIVEcREATION shape_1
 		
 		Shape shape_2 = peCreateService.createShape(shape_1, false);
@@ -85,8 +86,8 @@ public class PortShape extends DefaultSprayShape {
 		Text element_2 = gaService.createPlainText(shape_2);
 		ISprayStyle style_2 = style_1;
 		element_2.setStyle(style_2.getStyle(diagram));
-		gaService.setLocationAndSize(element_2, 5, 1, 40, 15);
-		SprayLayoutService.setLayoutData(shape_2, 40, 15, true);
+		gaService.setLocationAndSize(element_2, 5, 1, 15, 15);
+		SprayLayoutService.setLayoutData(shape_2, 15, 15, true);
 		element_2.setHorizontalAlignment(Orientation.ALIGNMENT_LEFT);
 		element_2.setVerticalAlignment(Orientation.ALIGNMENT_TOP);
 		peService.setPropertyValue(element_2, ISprayConstants.TEXT_ID, TextIds.portText.name());
@@ -103,13 +104,26 @@ public class PortShape extends DefaultSprayShape {
 		// creates the anchors
 		{
 			FixPointAnchor fixAnchor = peCreateService.createFixPointAnchor(containerShape);
-			Point fixAnchorPoint = gaService.createPoint(80, 16);
+			Point fixAnchorPoint = gaService.createPoint(0, 15);
 			fixAnchor.setLocation(fixAnchorPoint);
 			Ellipse ellipse = gaService.createEllipse(fixAnchor);
 			ellipse.setFilled(true);
 			ellipse.setLineVisible(false);
 			ellipse.setBackground(gaService.manageColor(diagram, IColorConstant.GRAY));
-			ellipse.setX(-6);
+			ellipse.setX(0);
+			ellipse.setY(-3);
+			ellipse.setWidth(6);
+			ellipse.setHeight(6);
+		}
+		{
+			FixPointAnchor fixAnchor = peCreateService.createFixPointAnchor(containerShape);
+			Point fixAnchorPoint = gaService.createPoint(20, 15);
+			fixAnchor.setLocation(fixAnchorPoint);
+			Ellipse ellipse = gaService.createEllipse(fixAnchor);
+			ellipse.setFilled(true);
+			ellipse.setLineVisible(false);
+			ellipse.setBackground(gaService.manageColor(diagram, IColorConstant.GRAY));
+			ellipse.setX(-3);
 			ellipse.setY(-3);
 			ellipse.setWidth(6);
 			ellipse.setHeight(6);
