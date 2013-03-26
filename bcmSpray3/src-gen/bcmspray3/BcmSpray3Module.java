@@ -1,6 +1,6 @@
 /*************************************************************************************
  *
- * Generated on Tue Mar 26 11:39:48 CET 2013 by Spray GuiceModule.xtend
+ * Generated on Tue Mar 26 14:46:34 CET 2013 by Spray GuiceModule.xtend
  * 
  * This file is an extension point: copy to "src" folder to manually add code to this
  * extension point.
