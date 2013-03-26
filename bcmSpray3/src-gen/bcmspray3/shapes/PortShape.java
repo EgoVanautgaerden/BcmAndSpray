@@ -117,13 +117,13 @@ public class PortShape extends DefaultSprayShape {
 		}
 		{
 			FixPointAnchor fixAnchor = peCreateService.createFixPointAnchor(containerShape);
-			Point fixAnchorPoint = gaService.createPoint(20, 15);
+			Point fixAnchorPoint = gaService.createPoint(30, 15);
 			fixAnchor.setLocation(fixAnchorPoint);
 			Ellipse ellipse = gaService.createEllipse(fixAnchor);
 			ellipse.setFilled(true);
 			ellipse.setLineVisible(false);
 			ellipse.setBackground(gaService.manageColor(diagram, IColorConstant.GRAY));
-			ellipse.setX(-3);
+			ellipse.setX(-6);
 			ellipse.setY(-3);
 			ellipse.setWidth(6);
 			ellipse.setHeight(6);

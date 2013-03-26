@@ -1,6 +1,6 @@
 /*************************************************************************************
  *
- * Generated on Tue Mar 26 09:42:40 CET 2013 by Spray DirectEditFeature.xtend
+ * Generated on Tue Mar 26 11:39:48 CET 2013 by Spray DirectEditFeature.xtend
  * 
  * This file is an extension point: copy to "src" folder to manually add code to this
  * extension point.

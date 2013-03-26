@@ -1,6 +1,6 @@
 /*************************************************************************************
  *
- * Generated on Tue Mar 26 09:42:40 CET 2013 by Spray CreateShapeFeature.xtend
+ * Generated on Tue Mar 26 11:39:48 CET 2013 by Spray CreateShapeFeature.xtend
  *
  * This file contains generated and should not be changed.
  * Use the extension point class (the direct subclass of this class) to add manual code
@@ -83,7 +83,7 @@ public abstract class BcmSpray3CreateComponentFeatureBase extends AbstractCreate
         return new Object[]{newClass};
     }
 
-    //       org.eclipse.emf.ecore.impl.EReferenceImpl@70063bad (name: components) (ordered: true, unique: true, lowerBound: 0, upperBound: -1) (changeable: true, volatile: false, transient: false, defaultValueLiteral: null, unsettable: false, derived: false) (containment: true, resolveProxies: true) 
+    //       org.eclipse.emf.ecore.impl.EReferenceImpl@39266022 (name: components) (ordered: true, unique: true, lowerBound: 0, upperBound: -1) (changeable: true, volatile: false, transient: false, defaultValueLiteral: null, unsettable: false, derived: false) (containment: true, resolveProxies: true) 
 
     /**
      * Creates a new {@link Component} instance and adds it to the containing type.

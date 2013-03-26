@@ -72,7 +72,7 @@ public class ComponentShape extends DefaultSprayShape {
 		GraphicsAlgorithm element_0 = gaService.createInvisibleRectangle(containerShape);
 		element_0.setStyle(sprayStyle.getStyle(diagram));
 		SprayLayoutService.setShapeFromDsl(containerShape, true);
-		gaService.setLocationAndSize(element_0, 0, 0, 140, 130);
+		gaService.setLocationAndSize(element_0, 0, 0, 120, 130);
 		
 		ContainerShape shape_1 = peCreateService.createContainerShape(containerShape, false);
 		SprayLayoutService.setId(shape_1, "componentShape.shape_1");
@@ -80,8 +80,8 @@ public class ComponentShape extends DefaultSprayShape {
 		Rectangle element_1 = gaService.createPlainRectangle(shape_1);
 		ISprayStyle style_1 = sprayStyle;
 		element_1.setStyle(style_1.getStyle(diagram));
-		gaService.setLocationAndSize(element_1, 0, 0, 140, 130);
-		SprayLayoutService.setLayoutData(shape_1, 140, 130, true);
+		gaService.setLocationAndSize(element_1, 0, 0, 120, 130);
+		SprayLayoutService.setLayoutData(shape_1, 120, 130, true);
 		element_1.setTransparency(1.0);		
 		// start RECURSIVEcREATION shape_1
 		
@@ -90,7 +90,7 @@ public class ComponentShape extends DefaultSprayShape {
 		RoundedRectangle element_2 = gaService.createPlainRoundedRectangle(shape_2, 20, 20);
 		ISprayStyle style_2 = style_1;
 		element_2.setStyle(style_2.getStyle(diagram));
-		gaService.setLocationAndSize(element_2, 20, 0, 100, 130);
+		gaService.setLocationAndSize(element_2, 10, 0, 100, 130);
 		SprayLayoutService.setLayoutData(shape_2, 100, 130, true);
 		// start RECURSIVEcREATION shape_2
 		
@@ -132,14 +132,14 @@ public class ComponentShape extends DefaultSprayShape {
 		GraphitiProperties.set(shape_5, ISprayConstants.TEXT_ID, "properties");
 		SprayLayoutType layout_5 = SprayLayoutType.VERTICAL;
 		SprayLayoutService.setLayoutManager(shape_5, layout_5, 5, 5, false);
-		SprayLayoutService.setLayoutData(shape_5, 35, 100);
+		SprayLayoutService.setLayoutData(shape_5, 35, 90);
 		SprayLayoutService.getLayoutData(shape_5).setHorizontalStrechable(true);
 		Rectangle element_5 = gaService.createPlainRectangle(shape_5);
 		ISprayStyle style_5 = style_1;
 		element_5.setStyle(style_5.getStyle(diagram));
-		gaService.setLocationAndSize(element_5, 100, 30, 35, 100);
-		SprayLayoutService.setLayoutData(shape_5, 35, 100, true);
-		element_5.setTransparency(1.0);		
+		gaService.setLocationAndSize(element_5, 90, 40, 35, 90);
+		SprayLayoutService.setLayoutData(shape_5, 35, 90, true);
+		element_5.setTransparency(0.9);		
 		// start RECURSIVEcREATION shape_5
 		
 		// end RECURSIVEcREATION shape_5
@@ -149,14 +149,14 @@ public class ComponentShape extends DefaultSprayShape {
 		GraphitiProperties.set(shape_6, ISprayConstants.TEXT_ID, "properties2");
 		SprayLayoutType layout_6 = SprayLayoutType.VERTICAL;
 		SprayLayoutService.setLayoutManager(shape_6, layout_6, 5, 5, false);
-		SprayLayoutService.setLayoutData(shape_6, 35, 100);
+		SprayLayoutService.setLayoutData(shape_6, 35, 90);
 		SprayLayoutService.getLayoutData(shape_6).setHorizontalStrechable(true);
 		Rectangle element_6 = gaService.createPlainRectangle(shape_6);
 		ISprayStyle style_6 = style_1;
 		element_6.setStyle(style_6.getStyle(diagram));
-		gaService.setLocationAndSize(element_6, 5, 30, 35, 100);
-		SprayLayoutService.setLayoutData(shape_6, 35, 100, true);
-		element_6.setTransparency(1.0);		
+		gaService.setLocationAndSize(element_6, 0, 40, 35, 90);
+		SprayLayoutService.setLayoutData(shape_6, 35, 90, true);
+		element_6.setTransparency(0.9);		
 		// start RECURSIVEcREATION shape_6
 		
 		// end RECURSIVEcREATION shape_6

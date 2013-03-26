@@ -33,5 +33,5 @@
 <rect x="0" y="0" width="30" height="30"/>
 <text x="5" y="16">#portText</text>
 <use x="0" y="15" xlink:href="#anchor"/>
-<use x="20" y="15" xlink:href="#anchor"/>
+<use x="30" y="15" xlink:href="#anchor"/>
 </svg>
