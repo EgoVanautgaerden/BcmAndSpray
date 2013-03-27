@@ -1,6 +1,6 @@
 /*************************************************************************************
  *
- * Generated on Wed Mar 27 09:02:06 CET 2013 by Spray CreateConnectionFeature.xtend
+ * Generated on Wed Mar 27 10:58:41 CET 2013 by Spray CreateConnectionFeature.xtend
  *
  * This file contains generated and should not be changed.
  * Use the extension point class (the direct subclass of this class) to add manual code

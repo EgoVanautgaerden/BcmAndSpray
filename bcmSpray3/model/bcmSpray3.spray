@@ -22,7 +22,7 @@ class Component icon "ecore/EClass.gif"{
 	shape componentShape {
 		//where to place the txt
 		name into componentText
-		//where to place the ports
+		//where to place the ports & components
 		reference ports into properties
 		reference ports into properties2
 		reference components into comps

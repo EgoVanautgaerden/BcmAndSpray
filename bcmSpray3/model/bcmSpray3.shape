@@ -37,7 +37,7 @@ shape componentShape{
             		//you could use the next command in comments if you want this compartement not to been seen, I would like to see this so I did not use it. 
                 	//invisible
                 	//Layout is to give in, in wich direction the objects must be added
-               		layout = vertical
+               		layout = fixed
                 	//how to stretch
                		stretching(
                 		horizontal=true,
@@ -57,7 +57,7 @@ shape componentShape{
 		}
 		rectangle {
 			compartment (
-				layout = vertical
+				layout = fixed
 				spacing=5
 	            margin=3
 	            id = properties
@@ -72,7 +72,7 @@ shape componentShape{
 		}	
 		rectangle {
 			compartment (
-				layout = vertical
+				layout = fixed
 				spacing=5
 	            margin=3
 	            id = properties2
