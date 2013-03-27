@@ -1,6 +1,6 @@
 /*************************************************************************************
  *
- * Generated on Tue Mar 26 14:46:36 CET 2013 by Spray MoveFeature.xtend
+ * Generated on Wed Mar 27 09:02:09 CET 2013 by Spray MoveFeature.xtend
  * 
  * This file is an extension point: copy to "src" folder to manually add code to this
  * extension point.
