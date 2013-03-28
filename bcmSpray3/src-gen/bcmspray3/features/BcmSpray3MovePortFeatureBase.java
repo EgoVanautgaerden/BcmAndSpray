@@ -1,6 +1,6 @@
 /*************************************************************************************
  *
- * Generated on Wed Mar 27 10:58:41 CET 2013 by Spray MoveFeature.xtend
+ * Generated on Thu Mar 28 08:08:53 CET 2013 by Spray MoveFeature.xtend
  *
  * This file contains generated and should not be changed.
  * Use the extension point class (the direct subclass of this class) to add manual code
@@ -14,6 +14,7 @@ import org.eclipse.graphiti.features.context.IMoveShapeContext;
 import org.eclipse.graphiti.features.impl.DefaultMoveShapeFeature;
 import org.eclipse.graphiti.features.context.impl.AddContext;
 import org.eclipse.graphiti.features.context.impl.RemoveContext;
+import org.eclipse.graphiti.mm.pictograms.Diagram;
 import org.eclipse.graphiti.mm.pictograms.PictogramElement;
 import org.eclipse.graphiti.mm.pictograms.ContainerShape;
 import org.eclipse.graphiti.mm.pictograms.Shape;
@@ -21,6 +22,8 @@ import org.eclipse.graphiti.mm.pictograms.Shape;
 import org.eclipselabs.spray.runtime.graphiti.GraphitiProperties;
 import org.eclipselabs.spray.runtime.graphiti.ISprayConstants;
 import org.eclipselabs.spray.runtime.graphiti.layout.SprayLayoutService;
+import org.eclipselabs.spray.runtime.graphiti.layout.ISprayLayoutManager;
+import org.eclipselabs.spray.runtime.graphiti.layout.SprayFitLayoutManager;
 import org.eclipselabs.spray.runtime.graphiti.layout.SprayFixedLayoutManager;
 import org.eclipselabs.spray.runtime.graphiti.layout.SprayTopLayoutManager;
 import org.eclipselabs.spray.runtime.graphiti.layout.SprayDiagramLayoutManager;
@@ -59,6 +62,9 @@ public abstract class BcmSpray3MovePortFeatureBase extends DefaultMoveShapeFeatu
             if ((SprayLayoutService.getLayoutManager(sourceShape.getContainer()) instanceof SprayDiagramLayoutManager)) {
                 return true;
             }
+            if ((SprayLayoutService.getLayoutManager(sourceShape.getContainer()) instanceof SprayFitLayoutManager)) {
+                return true;
+            }
             return false;
         }
         // Can move from containment to another containment compartment
@@ -95,9 +101,15 @@ public abstract class BcmSpray3MovePortFeatureBase extends DefaultMoveShapeFeatu
         Object target = getBusinessObjectForPictogramElement(targetContainer);
         if (sourceShape.eContainer() == targetContainer) {
             super.moveShape(context);
+            final Diagram diagram = this.getDiagram();
+            ISprayLayoutManager mgr = SprayLayoutService.getLayoutManager(diagram);
+            // TODO: Fixme: Need to layout twice, probably because this is a fit within a fit layout
+            //  Only neccesary when contents is moved to xcoordinates < 0
+            mgr.layout();
+            mgr.layout();
             return;
         }
-        if (target instanceof Component) {
+        if (target instanceof Component) { // For shape  + portShape
             if (SprayLayoutService.isCompartment(targetContainer)) {
                 String id = GraphitiProperties.get(targetContainer, ISprayConstants.TEXT_ID);
                 if ((id != null) && (id.equals("properties"))) {
@@ -110,6 +122,8 @@ public abstract class BcmSpray3MovePortFeatureBase extends DefaultMoveShapeFeatu
                     // remove from source container and add to target container
 
                     ((Component) target).getPorts().add((Port) source);
+                    sourceShape.getGraphicsAlgorithm().setX(context.getX());
+                    sourceShape.getGraphicsAlgorithm().setY(context.getY());
                     targetContainer.getChildren().add((Shape) sourceShape);
                     ContainerShape targetTop = SprayLayoutService.findTopDslShape(targetContainer);
                     if (targetTop != null) {
@@ -119,7 +133,7 @@ public abstract class BcmSpray3MovePortFeatureBase extends DefaultMoveShapeFeatu
                 }
             }
         }
-        if (target instanceof Component) {
+        if (target instanceof Component) { // For shape  + portShape
             if (SprayLayoutService.isCompartment(targetContainer)) {
                 String id = GraphitiProperties.get(targetContainer, ISprayConstants.TEXT_ID);
                 if ((id != null) && (id.equals("properties2"))) {
@@ -132,6 +146,8 @@ public abstract class BcmSpray3MovePortFeatureBase extends DefaultMoveShapeFeatu
                     // remove from source container and add to target container
 
                     ((Component) target).getPorts().add((Port) source);
+                    sourceShape.getGraphicsAlgorithm().setX(context.getX());
+                    sourceShape.getGraphicsAlgorithm().setY(context.getY());
                     targetContainer.getChildren().add((Shape) sourceShape);
                     ContainerShape targetTop = SprayLayoutService.findTopDslShape(targetContainer);
                     if (targetTop != null) {

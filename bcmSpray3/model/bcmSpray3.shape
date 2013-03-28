@@ -63,12 +63,12 @@ shape componentShape{
 	            id = properties
 	            stretching(
 	            	horizontal=false,
-	            	vertical=false
+	            	vertical=true
 	            )
 			)
 			position (x=100,y=40)
 			size (width=40,height=90)
-			style (transparency=0.9)
+			style (transparency=0.8)
 		}	
 		rectangle {
 			compartment (
@@ -78,12 +78,12 @@ shape componentShape{
 	            id = properties2
 	            stretching(
 	            	horizontal=false,
-	            	vertical=false
+	            	vertical=true
 	            )
 			)
 			position (x=0,y=40)
 			size (width=40,height=90)
-			style (transparency=0.9)
+			style (transparency=0.8)
 		}
 	}	
 }

@@ -1,6 +1,6 @@
 /*************************************************************************************
  *
- * Generated on Wed Mar 27 10:58:41 CET 2013 by Spray PropertySection.xtend
+ * Generated on Thu Mar 28 08:08:53 CET 2013 by Spray PropertySection.xtend
  *
  * This file contains generated and should not be changed.
  * Use the extension point class (the direct subclass of this class) to add manual code

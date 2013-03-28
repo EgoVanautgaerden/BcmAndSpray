@@ -1,6 +1,6 @@
 /*************************************************************************************
  *
- * Generated on Wed Mar 27 10:58:40 CET 2013 by Spray PluginActivator.xtend
+ * Generated on Thu Mar 28 08:08:50 CET 2013 by Spray PluginActivator.xtend
  *
  * This file contains generated and should not be changed.
  * Use the extension point class (the direct subclass of this class) to add manual code

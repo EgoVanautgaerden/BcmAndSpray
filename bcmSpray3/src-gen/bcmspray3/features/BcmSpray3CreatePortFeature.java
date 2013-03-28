@@ -1,6 +1,6 @@
 /*************************************************************************************
  *
- * Generated on Wed Mar 27 10:58:41 CET 2013 by Spray CreateShapeFeature.xtend
+ * Generated on Thu Mar 28 08:08:51 CET 2013 by Spray CreateShapeFeature.xtend
  * 
  * This file is an extension point: copy to "src" folder to manually add code to this
  * extension point.

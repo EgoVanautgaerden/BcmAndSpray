@@ -16,7 +16,7 @@ diagram bcmSpray3 for Bundle style BcmSpray3DefaultStyle
 
 //the class of an component
 //icon to use for in the pallet of options
-//hulp
+//help
 class Component icon "ecore/EClass.gif"{
 	//wich shape to use
 	shape componentShape {
