@@ -1,6 +1,6 @@
 /*************************************************************************************
  *
- * Generated on Thu Mar 28 08:08:53 CET 2013 by Spray UpdateShapeFromDslFeature.xtend
+ * Generated on Thu Mar 28 13:50:59 CET 2013 by Spray UpdateShapeFromDslFeature.xtend
  *
  * This file contains generated and should not be changed.
  * Use the extension point class (the direct subclass of this class) to add manual code

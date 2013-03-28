@@ -1,6 +1,6 @@
 /*************************************************************************************
  *
- * Generated on Thu Mar 28 08:08:53 CET 2013 by Spray ToolBehaviorProvider.xtend
+ * Generated on Thu Mar 28 13:50:59 CET 2013 by Spray ToolBehaviorProvider.xtend
  *
  * This file contains generated and should not be changed.
  * Use the extension point class (the direct subclass of this class) to add manual code
@@ -21,7 +21,8 @@ import org.eclipse.graphiti.services.Graphiti;
 
 import com.google.common.collect.Lists;
 import bcmspray3.features.BcmSpray3CreateComponentFeature;
-import bcmspray3.features.BcmSpray3CreatePConnectionFeature;
+import bcmspray3.features.BcmSpray3CreateConnectionFeature;
+import bcmspray3.features.BcmSpray3CreateOuterComponentFeature;
 import bcmspray3.features.BcmSpray3CreatePortFeature;
 
 public abstract class BcmSpray3ToolBehaviorProviderBase extends AbstractSprayToolBehaviorProvider {
@@ -54,8 +55,9 @@ public abstract class BcmSpray3ToolBehaviorProviderBase extends AbstractSprayToo
     @Override
     protected void buildCreationTools() {
         buildCreationTool(new BcmSpray3CreateComponentFeature(this.getFeatureProvider()));
+        buildCreationTool(new BcmSpray3CreateOuterComponentFeature(this.getFeatureProvider()));
         buildCreationTool(new BcmSpray3CreatePortFeature(this.getFeatureProvider()));
-        buildCreationTool(new BcmSpray3CreatePConnectionFeature(this.getFeatureProvider()));
+        buildCreationTool(new BcmSpray3CreateConnectionFeature(this.getFeatureProvider()));
         // Compartments
     }
 
@@ -74,9 +76,11 @@ public abstract class BcmSpray3ToolBehaviorProviderBase extends AbstractSprayToo
     protected IPaletteCompartmentEntry getPaletteCompartmentForFeature(final IFeature feature) {
         if (feature instanceof BcmSpray3CreateComponentFeature) {
             return getPaletteCompartment(COMPARTMENT_COMPONETS);
+        } else if (feature instanceof BcmSpray3CreateOuterComponentFeature) {
+            return getPaletteCompartment(COMPARTMENT_COMPONETS);
         } else if (feature instanceof BcmSpray3CreatePortFeature) {
             return getPaletteCompartment(COMPARTMENT_BORDER_ITEMS);
-        } else if (feature instanceof BcmSpray3CreatePConnectionFeature) {
+        } else if (feature instanceof BcmSpray3CreateConnectionFeature) {
             return getPaletteCompartment(COMPARTMENT_CONNECTIONS);
         }
         return super.getPaletteCompartmentForFeature(feature);

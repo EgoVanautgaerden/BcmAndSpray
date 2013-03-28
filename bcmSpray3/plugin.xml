@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
         <?eclipse version="3.0"?>
         <!--
-         Generated on Thu Mar 28 08:08:50 CET 2013 by Spray Plugin.xtend
+         Generated on Thu Mar 28 13:50:59 CET 2013 by Spray Plugin.xtend
          This file will be generated oinly once if it need to be regenerated, remove this file.
          
         -->
@@ -75,6 +75,17 @@
                   </propertyTab>
               </propertyTabs>
           </extension>
+        <extension
+            point="org.eclipse.ui.views.properties.tabbed.propertySections">
+            <propertySections contributorId="bcmSpray3.PropertyContributor">
+          <propertySection tab="bcmSpray3.main.tab"
+           class="bcmspray3.internal.ExecutableExtensionFactory:bcmspray3.property.ComponentNameSection"
+           filter="bcmspray3.property.ComponentFilter"
+           id="bcmSpray3.main.tab.Component.name">
+          </propertySection>
+            </propertySections>
+        </extension>
+        
         <extension
             point="org.eclipse.ui.views.properties.tabbed.propertySections">
             <propertySections contributorId="bcmSpray3.PropertyContributor">

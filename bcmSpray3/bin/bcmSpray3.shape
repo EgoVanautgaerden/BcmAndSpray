@@ -57,7 +57,7 @@ shape componentShape{
 		}
 		rectangle {
 			compartment (
-				layout = fixed
+				layout = vertical
 				spacing=5
 	            margin=3
 	            id = properties
@@ -72,7 +72,7 @@ shape componentShape{
 		}	
 		rectangle {
 			compartment (
-				layout = fixed
+				layout = vertical
 				spacing=5
 	            margin=3
 	            id = properties2
@@ -83,6 +83,78 @@ shape componentShape{
 			)
 			position (x=0,y=40)
 			size (width=40,height=90)
+			style (transparency=0.8)
+		}
+	}	
+}
+
+//shape fo a content
+shape componentShape2{
+	//main rectangle
+	rectangle{
+		position(x=0,y=0)
+		size(width=300,height=400)
+		style(transparency=0.9)
+		
+		//the rectangle who has everything in himself, normaly it would have 4 rounded corners but due to the rectangles on the bottom who doesn't have rounded corners you onley see the top rounded corners
+		rounded-rectangle{
+			//code to give in how big the curve must be
+			curve(width=20,height=20)
+			position(x=20,y=0)
+			size(width=260, height=400)
+			//the name of the class
+			text {
+           		size(width=240, height=25)
+           		position(x=5,y=5)
+           		align (horizontal=center,vertical=middle)
+           		//this is used to know where the name must be placed in
+            	id = componentText        
+        	}
+        	//place for all the other components
+        	rectangle {
+	        	compartment (
+					layout = fixed
+					spacing=5
+		            margin=3
+		            id = comps
+		            stretching(
+		            	horizontal=false,
+		            	vertical=true
+		            )
+				)
+           		style (line-color=black)
+           		position (x=0, y=35)
+           		size (width=260, height=365)
+       		}
+		}
+		rectangle {
+			compartment (
+				layout = vertical
+				spacing=5
+	            margin=3
+	            id = properties
+	            stretching(
+	            	horizontal=false,
+	            	vertical=true
+	            )
+			)
+			position (x=260,y=40)
+			size (width=40,height=365)
+			style (transparency=0.8)
+		}	
+		rectangle {
+			compartment (
+				layout = vertical
+				spacing=5
+	            margin=3
+	            id = properties2
+	            stretching(
+	            	horizontal=false,
+	            	vertical=true
+	            )
+			)
+			position (x=0,y=40)
+			size (width=40,height=365)
 			style (transparency=0.8)
 		}
 	}	

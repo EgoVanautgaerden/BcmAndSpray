@@ -38,7 +38,7 @@ public class BcmSpray3DefaultStyle extends org.eclipselabs.spray.runtime.graphit
         style.setDescription("The default style of the bcmSpray3 diagram type.");
 
         // transparency value
-        style.setTransparency(0.5);
+        style.setTransparency(0.0);
 
         // background attributes
 

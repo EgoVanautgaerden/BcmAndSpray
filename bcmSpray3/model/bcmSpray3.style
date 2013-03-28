@@ -9,7 +9,7 @@
 // Add definition of styles here.
 style BcmSpray3DefaultStyle {
     description = "The default style of the bcmSpray3 diagram type."
-    transparency = 0.5
+    transparency = 0.0
     // background-color = black
     // line-color = black
     // line-style = solid

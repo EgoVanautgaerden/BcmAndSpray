@@ -1,6 +1,6 @@
 /*************************************************************************************
  *
- * Generated on Thu Mar 28 08:08:53 CET 2013 by Spray PasteFeature.xtend
+ * Generated on Thu Mar 28 13:50:59 CET 2013 by Spray PasteFeature.xtend
  *
  * This file contains generated and should not be changed.
  * Use the extension point class (the direct subclass of this class) to add manual code
@@ -92,10 +92,13 @@ public abstract class BcmSpray3PasteFeatureBase extends AbstractPasteFeature {
         if (bo.eClass() == BcmPackage.Literals.COMPONENT && alias == null) {
             model.getComponents().add((Component) bo);
         }
+        if (bo.eClass() == BcmPackage.Literals.COMPONENT && "OuterComponent".equals(alias)) {
+            model.getComponents().add((Component) bo);
+        }
         if (bo.eClass() == BcmPackage.Literals.PORT && alias == null) {
             throw new UnsupportedOperationException("No create behavior defined");
         }
-        if (bo.eClass() == BcmPackage.Literals.PCONNECTION && alias == null) {
+        if (bo.eClass() == BcmPackage.Literals.PCONNECTION && "Connection".equals(alias)) {
             model.getConnections().add((PConnection) bo);
         }
     }

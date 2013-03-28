@@ -16,10 +16,27 @@ diagram bcmSpray3 for Bundle style BcmSpray3DefaultStyle
 
 //the class of an component
 //icon to use for in the pallet of options
-//help
+//helpppp
 class Component icon "ecore/EClass.gif"{
 	//wich shape to use
 	shape componentShape {
+		//where to place the txt
+		name into componentText
+		//where to place the ports & components
+		reference ports into properties
+		reference ports into properties2
+		reference components into comps
+	}
+	//what it has to do and where to place this in the pallet
+	behavior {
+	    create into components palette "componets" askFor name
+	}
+	
+}
+
+class Component alias OuterComponent icon "ecore/EClass.gif"{
+	//wich shape to use
+	shape componentShape2 {
 		//where to place the txt
 		name into componentText
 		//where to place the ports & components
@@ -46,7 +63,7 @@ class Port icon "ecore/EAttribute.gif"{
 }
 
 //the clas for a connection
-class PConnection icon "connection16.gif" {
+class PConnection alias Connection icon "connection16.gif" {
 	//wich connection to use
 	connection connectionShape {
 		name into assocText

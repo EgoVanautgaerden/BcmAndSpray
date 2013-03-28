@@ -1,14 +1,12 @@
 /*************************************************************************************
  *
- * Generated on Thu Mar 21 09:28:26 CET 2013 by Spray FeatureProvider.xtend
+ * Generated on Thu Mar 28 13:35:24 CET 2013 by Spray FeatureProvider.xtend
  *
  * This file contains generated and should not be changed.
  * Use the extension point class (the direct subclass of this class) to add manual code
  *
  *************************************************************************************/
 package bcmspray3.diagram;
-
-//author: Ego Vanautgaerden
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.graphiti.dt.IDiagramTypeProvider;
@@ -51,23 +49,29 @@ import bcm.BcmPackage;
 import bcm.Component;
 import bcm.PConnection;
 import bcm.Port;
-import bcmspray3.feature.BcmSpray3AddPConnectionFeature;
+import bcmspray3.feature.BcmSpray3AddConnectionFeature;
 import bcmspray3.feature.BcmSpray3AddPortFeature;
 import bcmspray3.feature.BcmSpray3ResizeComponentFeature;
+import bcmspray3.feature.BcmSpray3ResizeOuterComponentFeature;
+import bcmspray3.feature.BcmSpray3UpdateOuterComponentFeature;
 import bcmspray3.features.BcmSpray3AddComponentFeature;
+import bcmspray3.features.BcmSpray3AddOuterComponentFeature;
 import bcmspray3.features.BcmSpray3CopyFeature;
 import bcmspray3.features.BcmSpray3CreateComponentFeature;
-import bcmspray3.features.BcmSpray3CreatePConnectionFeature;
+import bcmspray3.features.BcmSpray3CreateConnectionFeature;
+import bcmspray3.features.BcmSpray3CreateOuterComponentFeature;
 import bcmspray3.features.BcmSpray3CreatePortFeature;
 import bcmspray3.features.BcmSpray3DirectEditComponentFeature;
-import bcmspray3.features.BcmSpray3DirectEditPConnectionFeature;
+import bcmspray3.features.BcmSpray3DirectEditConnectionFeature;
+import bcmspray3.features.BcmSpray3DirectEditOuterComponentFeature;
 import bcmspray3.features.BcmSpray3DirectEditPortFeature;
 import bcmspray3.features.BcmSpray3LayoutComponentFeature;
+import bcmspray3.features.BcmSpray3LayoutOuterComponentFeature;
 import bcmspray3.features.BcmSpray3LayoutPortFeature;
 import bcmspray3.features.BcmSpray3PasteFeature;
 import bcmspray3.features.BcmSpray3ResizePortFeature;
 import bcmspray3.features.BcmSpray3UpdateComponentFeature;
-import bcmspray3.features.BcmSpray3UpdatePConnectionFeature;
+import bcmspray3.features.BcmSpray3UpdateConnectionFeature;
 import bcmspray3.features.BcmSpray3UpdatePortFeature;
 
 @SuppressWarnings("unused")
@@ -90,14 +94,19 @@ public abstract class BcmSpray3FeatureProviderBase extends DefaultFeatureProvide
                 return new BcmSpray3AddComponentFeature(this);
             }
         }
+        if (bo.eClass() == BcmPackage.Literals.COMPONENT && "OuterComponent".equals(alias)) {
+            if (reference == null) {
+                return new BcmSpray3AddOuterComponentFeature(this);
+            }
+        }
         if (bo.eClass() == BcmPackage.Literals.PORT && alias == null) {
             if (reference == null) {
                 return new BcmSpray3AddPortFeature(this);
             }
         }
-        if (bo.eClass() == BcmPackage.Literals.PCONNECTION && alias == null) {
+        if (bo.eClass() == BcmPackage.Literals.PCONNECTION && "Connection".equals(alias)) {
             if (reference == null) {
-                return new BcmSpray3AddPConnectionFeature(this);
+                return new BcmSpray3AddConnectionFeature(this);
             }
         }
         return super.getAddFeature(context);
@@ -116,7 +125,7 @@ public abstract class BcmSpray3FeatureProviderBase extends DefaultFeatureProvide
      */
     @Override
     public ICreateFeature[] getCreateFeatures() {
-        return new ICreateFeature[]{new BcmSpray3CreateComponentFeature(this), new BcmSpray3CreatePortFeature(this)};
+        return new ICreateFeature[]{new BcmSpray3CreateComponentFeature(this), new BcmSpray3CreateOuterComponentFeature(this), new BcmSpray3CreatePortFeature(this)};
     }
 
     /**
@@ -124,7 +133,7 @@ public abstract class BcmSpray3FeatureProviderBase extends DefaultFeatureProvide
      */
     @Override
     public ICreateConnectionFeature[] getCreateConnectionFeatures() {
-        return new ICreateConnectionFeature[]{new BcmSpray3CreatePConnectionFeature(this)};
+        return new ICreateConnectionFeature[]{new BcmSpray3CreateConnectionFeature(this)};
     }
 
     /**
@@ -148,11 +157,14 @@ public abstract class BcmSpray3FeatureProviderBase extends DefaultFeatureProvide
         if (bo.eClass() == BcmPackage.Literals.COMPONENT && alias == null) { // 11
             return new BcmSpray3UpdateComponentFeature(this);
         }
+        if (bo.eClass() == BcmPackage.Literals.COMPONENT && "OuterComponent".equals(alias)) { // 11
+            return new BcmSpray3UpdateOuterComponentFeature(this);
+        }
         if (bo.eClass() == BcmPackage.Literals.PORT && alias == null) { // 11
             return new BcmSpray3UpdatePortFeature(this);
         }
-        if (bo instanceof PConnection && alias == null) { // 33
-            return new BcmSpray3UpdatePConnectionFeature(this);
+        if (bo instanceof PConnection && "Connection".equals(alias)) { // 33
+            return new BcmSpray3UpdateConnectionFeature(this);
         }
         //        }
         return super.getUpdateFeature(context);
@@ -171,6 +183,9 @@ public abstract class BcmSpray3FeatureProviderBase extends DefaultFeatureProvide
         final String alias = peService.getPropertyValue(pictogramElement, PROPERTY_ALIAS);
         if (bo.eClass() == BcmPackage.Literals.COMPONENT && alias == null) {
             return new BcmSpray3LayoutComponentFeature(this);
+        }
+        if (bo.eClass() == BcmPackage.Literals.COMPONENT && "OuterComponent".equals(alias)) {
+            return new BcmSpray3LayoutOuterComponentFeature(this);
         }
         if (bo.eClass() == BcmPackage.Literals.PORT && alias == null) {
             return new BcmSpray3LayoutPortFeature(this);
@@ -202,12 +217,17 @@ public abstract class BcmSpray3FeatureProviderBase extends DefaultFeatureProvide
                 return new DefaultDeleteFeature(this);
             }
         }
+        if (bo.eClass() == BcmPackage.Literals.COMPONENT && "OuterComponent".equals(alias)) {
+            if (reference == null) {
+                return new DefaultDeleteFeature(this);
+            }
+        }
         if (bo.eClass() == BcmPackage.Literals.PORT && alias == null) {
             if (reference == null) {
                 return new DefaultDeleteFeature(this);
             }
         }
-        if (bo.eClass() == BcmPackage.Literals.PCONNECTION && alias == null) {
+        if (bo.eClass() == BcmPackage.Literals.PCONNECTION && "Connection".equals(alias)) {
             if (reference == null) {
                 return new DefaultDeleteFeature(this);
             }
@@ -231,6 +251,10 @@ public abstract class BcmSpray3FeatureProviderBase extends DefaultFeatureProvide
         EObject target = getBusinessObjectForPictogramElement(targetContainer);
         if (eObject instanceof Component) {
             return new bcmspray3.features.BcmSpray3MoveComponentFeature(this);
+        }
+
+        if (eObject instanceof Component) {
+            return new bcmspray3.features.BcmSpray3MoveOuterComponentFeature(this);
         }
 
         if (eObject instanceof Port) {
@@ -271,11 +295,14 @@ public abstract class BcmSpray3FeatureProviderBase extends DefaultFeatureProvide
         if (bo.eClass() == BcmPackage.Literals.COMPONENT && alias == null) {
             return new BcmSpray3DirectEditComponentFeature(this);
         }
+        if (bo.eClass() == BcmPackage.Literals.COMPONENT && "OuterComponent".equals(alias)) {
+            return new BcmSpray3DirectEditOuterComponentFeature(this);
+        }
         if (bo.eClass() == BcmPackage.Literals.PORT && alias == null) {
             return new BcmSpray3DirectEditPortFeature(this);
         }
-        if (bo.eClass() == BcmPackage.Literals.PCONNECTION && alias == null) {
-            return new BcmSpray3DirectEditPConnectionFeature(this);
+        if (bo.eClass() == BcmPackage.Literals.PCONNECTION && "Connection".equals(alias)) {
+            return new BcmSpray3DirectEditConnectionFeature(this);
         }
         return super.getDirectEditingFeature(context);
     }
@@ -306,6 +333,9 @@ public abstract class BcmSpray3FeatureProviderBase extends DefaultFeatureProvide
         final String alias = peService.getPropertyValue(pictogramElement, PROPERTY_ALIAS);
         if (bo.eClass() == BcmPackage.Literals.COMPONENT && alias == null) {
             return new BcmSpray3ResizeComponentFeature(this);
+        }
+        if (bo.eClass() == BcmPackage.Literals.COMPONENT && "OuterComponent".equals(alias)) {
+            return new BcmSpray3ResizeOuterComponentFeature(this);
         }
         if (bo.eClass() == BcmPackage.Literals.PORT && alias == null) {
             return new BcmSpray3ResizePortFeature(this);
