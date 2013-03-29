@@ -1,6 +1,6 @@
 /*************************************************************************************
  *
- * Generated on Fri Mar 29 09:23:03 CET 2013 by Spray GuiceModule.xtend
+ * Generated on Fri Mar 29 10:58:52 CET 2013 by Spray GuiceModule.xtend
  *
  * This file contains generated and should not be changed.
  * Use the extension point class (the direct subclass of this class) to add manual code
