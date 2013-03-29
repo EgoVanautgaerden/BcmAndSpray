@@ -1,6 +1,6 @@
 /*************************************************************************************
  *
- * Generated on Thu Mar 28 13:50:59 CET 2013 by Spray MoveFeature.xtend
+ * Generated on Fri Mar 29 09:23:07 CET 2013 by Spray MoveFeature.xtend
  *
  * This file contains generated and should not be changed.
  * Use the extension point class (the direct subclass of this class) to add manual code
@@ -85,6 +85,24 @@ public abstract class BcmSpray3MovePortFeatureBase extends DefaultMoveShapeFeatu
                 }
             }
         }
+        // Can move from containment to another containment compartment
+        if (target instanceof Component) {
+            if (SprayLayoutService.isCompartment(context.getTargetContainer())) {
+                String id = GraphitiProperties.get(context.getTargetContainer(), ISprayConstants.TEXT_ID);
+                if ((id != null) && (id.equals("properties"))) {
+                    return true;
+                }
+            }
+        }
+        // Can move from containment to another containment compartment
+        if (target instanceof Component) {
+            if (SprayLayoutService.isCompartment(context.getTargetContainer())) {
+                String id = GraphitiProperties.get(context.getTargetContainer(), ISprayConstants.TEXT_ID);
+                if ((id != null) && (id.equals("properties2"))) {
+                    return true;
+                }
+            }
+        }
         return super.canMoveShape(context);
     }
 
@@ -108,6 +126,54 @@ public abstract class BcmSpray3MovePortFeatureBase extends DefaultMoveShapeFeatu
             mgr.layout();
             mgr.layout();
             return;
+        }
+        if (target instanceof Component) { // For shape  + portShape
+            if (SprayLayoutService.isCompartment(targetContainer)) {
+                String id = GraphitiProperties.get(targetContainer, ISprayConstants.TEXT_ID);
+                if ((id != null) && (id.equals("properties"))) {
+
+                    sourceContainer.getChildren().remove(source);
+                    ContainerShape sourceTop = SprayLayoutService.findTopDslShape(sourceContainer);
+                    if (sourceTop != null) {
+                        SprayLayoutService.getLayoutManager(sourceTop).layout();
+                    }
+                    // remove from source container and add to target container
+
+                    ((Component) target).getPorts().add((Port) source);
+                    sourceShape.getGraphicsAlgorithm().setX(context.getX());
+                    sourceShape.getGraphicsAlgorithm().setY(context.getY());
+                    targetContainer.getChildren().add((Shape) sourceShape);
+                    ContainerShape targetTop = SprayLayoutService.findTopDslShape(targetContainer);
+                    if (targetTop != null) {
+                        SprayLayoutService.getLayoutManager(targetTop).layout();
+                    }
+                    return;
+                }
+            }
+        }
+        if (target instanceof Component) { // For shape  + portShape
+            if (SprayLayoutService.isCompartment(targetContainer)) {
+                String id = GraphitiProperties.get(targetContainer, ISprayConstants.TEXT_ID);
+                if ((id != null) && (id.equals("properties2"))) {
+
+                    sourceContainer.getChildren().remove(source);
+                    ContainerShape sourceTop = SprayLayoutService.findTopDslShape(sourceContainer);
+                    if (sourceTop != null) {
+                        SprayLayoutService.getLayoutManager(sourceTop).layout();
+                    }
+                    // remove from source container and add to target container
+
+                    ((Component) target).getPorts().add((Port) source);
+                    sourceShape.getGraphicsAlgorithm().setX(context.getX());
+                    sourceShape.getGraphicsAlgorithm().setY(context.getY());
+                    targetContainer.getChildren().add((Shape) sourceShape);
+                    ContainerShape targetTop = SprayLayoutService.findTopDslShape(targetContainer);
+                    if (targetTop != null) {
+                        SprayLayoutService.getLayoutManager(targetTop).layout();
+                    }
+                    return;
+                }
+            }
         }
         if (target instanceof Component) { // For shape  + portShape
             if (SprayLayoutService.isCompartment(targetContainer)) {

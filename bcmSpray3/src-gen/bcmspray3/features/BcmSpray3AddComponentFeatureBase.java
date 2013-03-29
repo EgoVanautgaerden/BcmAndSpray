@@ -1,6 +1,6 @@
 /*************************************************************************************
  *
- * Generated on Thu Mar 28 13:50:59 CET 2013 by Spray AddShapeFromDslFeature.xtend
+ * Generated on Fri Mar 29 09:23:03 CET 2013 by Spray AddShapeFromDslFeature.xtend
  *
  * This file contains generated and should not be changed.
  * Use the extension point class (the direct subclass of this class) to add manual code
@@ -52,6 +52,15 @@ public abstract class BcmSpray3AddComponentFeatureBase extends AbstractAddFeatur
                 // OLD STUFF
                 final Object target = getBusinessObjectForPictogramElement(context.getTargetContainer());
                 // NEW stuff
+                // cls Component refers to this metaClass»
+                if (target instanceof bcm.Component) {
+                    if (SprayLayoutService.isCompartment(context.getTargetContainer())) {
+                        String id = GraphitiProperties.get(context.getTargetContainer(), TEXT_ID);
+                        if ((id != null) && (id.equals("comps"))) {
+                            return true;
+                        }
+                    }
+                }
                 // cls Component refers to this metaClass»
                 if (target instanceof bcm.Component) {
                     if (SprayLayoutService.isCompartment(context.getTargetContainer())) {
